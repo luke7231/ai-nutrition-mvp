@@ -1,0 +1,17 @@
+# Cloudtype 배포 설정 파일
+# Cloudtype 대시보드에서도 설정 가능하지만, 이 파일로도 관리할 수 있습니다.
+
+version: '1.0'
+
+services:
+  api:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5001"
+    environment:
+      - PORT=5001
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    restart: unless-stopped
+

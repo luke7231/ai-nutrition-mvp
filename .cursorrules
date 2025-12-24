@@ -1,0 +1,26 @@
+# Project Context
+- We are building an MVP for an "AI Nutritionist" service.
+- **Architecture:** Monorepo style (folder structure: `client` / `server`).
+  - Frontend: React (Create React App) + TypeScript + Tailwind CSS.
+  - Backend: Node.js + Express + TypeScript.
+- **Data Source:** NO DATABASE. Use local JSON files in the Backend.
+
+# Coding Guidelines
+- **Language:** TypeScript for all.
+- **Backend (Node/Express):**
+  - Store data in `src/data/products.ts`.
+  - API: `POST /api/recommend`.
+- **Frontend (React - CRA):**
+  - Use CRA with TypeScript template.
+  - **Design System:** "Toss Style" minimalist design. High emphasis on typography, clean white space, and rounded UI elements using Tailwind CSS.
+  - **UX Flow:** Multi-step form wizard (one question per screen) instead of a single long form.
+
+# Key Constraints
+- Do not use Vite. Use CRA.
+- No Database.
+- Keep logic simple, focus on UI/UX flow.
+
+# Quality Assurance
+- **Linting & Type Checking:** Before finalizing any task, MUST run linter or type checker to ensure no errors exist.
+  - Check for missing dependencies or type mismatches.
+  - Resolve all linter errors before confirming task completion.
