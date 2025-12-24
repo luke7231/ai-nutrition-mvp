@@ -20,6 +20,7 @@
 ## 🏗️ 기술 스택
 
 ### Frontend
+
 - **React 18** + **TypeScript**
 - **Create React App** (CRA)
 - **Tailwind CSS** - Toss 스타일 미니멀 디자인
@@ -27,16 +28,19 @@
 - **Axios** - HTTP 클라이언트
 
 ### Backend
+
 - **Node.js** + **Express 5**
 - **TypeScript**
 - **OpenAI API** (GPT-4o-mini) - AI 분석 엔진
 - **CORS** - Cross-Origin 리소스 공유
 
 ### 배포
+
 - **Vercel** - 프론트엔드 배포
 - **Cloudtype** - 백엔드 배포 (Docker)
 
 ### 데이터
+
 - **JSON 파일 기반** - 데이터베이스 없이 파일 시스템 사용
 - **정적 데이터**: 제품, 성분, 증상 데이터
 
@@ -103,6 +107,7 @@ cp .env.example .env
 ```
 
 `.env` 파일:
+
 ```env
 PORT=5001
 OPENAI_API_KEY=your_openai_api_key_here
@@ -136,6 +141,7 @@ npm start
 ## 📡 API 엔드포인트
 
 ### 1. 증상 추천
+
 ```
 POST /api/symptoms/suggest
 Body: { age: number, gender: "male" | "female" }
@@ -143,12 +149,13 @@ Response: { symptoms: string[] }
 ```
 
 ### 2. 분석 및 전략 생성
+
 ```
 POST /api/analyze
-Body: { 
-  age: number, 
-  gender: "male" | "female", 
-  selected_symptoms: string[] 
+Body: {
+  age: number,
+  gender: "male" | "female",
+  selected_symptoms: string[]
 }
 Response: {
   strategies: [
@@ -158,6 +165,7 @@ Response: {
 ```
 
 ### 3. 용량 추천
+
 ```
 POST /api/dosages/recommend
 Body: {
@@ -173,6 +181,7 @@ Response: {
 ```
 
 ### 4. 제품 번들 추천
+
 ```
 POST /api/recommend
 Body: {
@@ -188,39 +197,47 @@ Response: {
 ## 🎨 주요 기능 설명
 
 ### 1. 멀티 스텝 폼
+
 - 한 화면에 하나의 질문만 표시하여 사용자 집중도 향상
 - 8단계 플로우: 대상 선택 → 프로필 → 증상 → 분석 → 전략 → 용량 → 리포트 → 상세
 
 ### 2. AI 기반 전략 생성
+
 - OpenAI GPT-4o-mini를 활용한 지능형 분석
 - 사용자 증상과 연령대에 맞는 성분 추천
 - Light/Full 두 가지 전략 제공
 
 ### 3. 실시간 학습 현황
+
 - 논문 학습 통계를 홈 화면에 표시
 - 사용자 신뢰도 향상
 
 ### 4. 반응형 디자인
+
 - 모바일 우선 설계 (390px 기준)
 - Toss 스타일 미니멀 디자인
 
 ## 🛠️ 기술적 의사결정
 
 ### 데이터베이스 없이 JSON 파일 사용
+
 - **이유**: MVP 단계에서 빠른 프로토타이핑과 간단한 배포를 위해
 - **장점**: 설정 간소화, 배포 용이성
 - **향후 개선**: 실제 서비스에서는 PostgreSQL/MongoDB 도입 고려
 
 ### Create React App 사용
+
 - **이유**: 빠른 개발 시작, 검증된 설정
 - **장점**: Zero-config, 안정성
 - **향후 개선**: 성능 최적화가 필요하면 Vite로 마이그레이션 고려
 
 ### TypeScript 전면 사용
+
 - **이유**: 타입 안정성, 개발자 경험 향상
 - **장점**: 컴파일 타임 에러 방지, 자동완성
 
 ### Docker 기반 배포
+
 - **이유**: 환경 일관성, 확장성
 - **장점**: 로컬/프로덕션 환경 동일성 보장
 
@@ -231,6 +248,7 @@ Response: {
 ### 빠른 배포 요약
 
 1. **백엔드 (Cloudtype)**
+
    - Git 저장소 연결
    - Dockerfile 경로: `server/Dockerfile`
    - 환경 변수: `OPENAI_API_KEY`, `PORT`
@@ -259,15 +277,6 @@ npm run build
 - `server/src/data/products.ts`: 제품 데이터 (자동 생성)
 - `client/src/api/client.ts`: API 클라이언트 래퍼
 
-## 🔮 향후 개선 사항
-
-- [ ] 데이터베이스 도입 (PostgreSQL/MongoDB)
-- [ ] 사용자 인증 및 히스토리 저장
-- [ ] 제품 비교 기능 완성
-- [ ] 실시간 논문 학습 통계 API 연동
-- [ ] 성능 최적화 (코드 스플리팅, 이미지 최적화)
-- [ ] 테스트 코드 작성 (Jest, React Testing Library)
-
 ## 📄 라이선스
 
 이 프로젝트는 면접 과제용으로 제작되었습니다.
@@ -277,6 +286,3 @@ npm run build
 면접 과제 제출용 프로젝트
 
 ---
-
-**면접관님께**: 이 프로젝트는 MVP 단계의 프로토타입이며, 실제 서비스로 전환 시 위의 개선 사항들을 우선적으로 적용할 예정입니다.
-
